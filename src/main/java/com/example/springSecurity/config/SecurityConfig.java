@@ -55,7 +55,7 @@ public class SecurityConfig {
 
     @Bean
     public SessionRegistry sessionRegistry() {
-        //PARA PODE VER EL FUNCIONAMIENTO SE CREO UN METODO DENTRO DE CONTROLLER ( getDetailsSession() )
+        //PARA PODER VER EL FUNCIONAMIENTO SE CREÓ UN METODO DENTRO DE CONTROLLER ( getDetailsSession() )
         // SessionRegistryImpl es la implementación por defecto de SessionRegistry en Spring Security.
         // Se usa para gestionar sesiones activas y controlar la concurrencia de usuarios autenticados.
         //Se usa principalmente en aplicaciones que necesitan gestionar múltiples sesiones o restringir sesiones concurrentes.
