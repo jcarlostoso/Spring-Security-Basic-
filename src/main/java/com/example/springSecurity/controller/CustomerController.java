@@ -31,6 +31,30 @@ public class CustomerController {
         return "Hello world sin seguridad!!";
     }
 
+    @GetMapping("/session")
+    public ResponseEntity<?> getDetailsSession(){
+        String sessionId="";
+        User userObject=null;
 
+       List<Object>sessions= sessionRegistry.getAllPrincipals();
+
+       for (Object session : sessions){
+           if(session instanceof User){
+               userObject= (User) session;
+           }
+           List<SessionInformation> sessionInformations = sessionRegistry.getAllSessions(session,false);
+
+           for (SessionInformation sessionInformation : sessionInformations){
+                sessionId=sessionInformation.getSessionId();
+           }
+       }
+
+       Map<String, Object> response =new HashMap<>();
+       response.put("response", "Hello World");
+       response.put("sessionId",sessionId);
+       response.put("user",userObject);
+
+        return  ResponseEntity.ok(response);
+    }
 
 }
